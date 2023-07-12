@@ -25,7 +25,7 @@
   --fundo-hoverlista: rgba(0, 0, 0, 0.02);
   --moon-star: url(./assets/sol.svg);
   --back-button: rgba(0, 0, 0, 0.05);
-  --border-button: 1px solid rgba(0, 0, 0, 0.50);
+  --border-button: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -47,7 +47,6 @@ background-size: cover; preenche toda a pagina
 body * {
   font-family: "inter", sans-serif;
   color: var(--text-color);
-
 }
 
 #container {
@@ -93,11 +92,17 @@ body * {
   border-radius: 50%;
   position: absolute;
   z-index: 1;
+
+  animation: slide-back .4s;
+}
+
+#switch button:hover {
+outline: 8px solid var(--fundo-social-link);
+
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in .4s forwards;
 }
 
 #switch span /* por padrão o span é in-line */ {
@@ -166,7 +171,6 @@ ul li a:hover {
   border-radius: 50%;
 }
 
-
 footer {
   padding: 24px 0px;
   font-size: 14px;
@@ -177,15 +181,34 @@ footer {
 /* media queries */
 
 @media (min-width: 700px) {
-
   :root {
     --bg-light-mode: url(./assets/bg-desktop-dark.jpg);
-
   }
 
   .light {
     --bg-light-mode: url(./assets/bg-desktop-light.jpg);
-
   }
+}
+
+/* animation */
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+
 
 }
